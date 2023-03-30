@@ -60,6 +60,7 @@ img {
 
 iframe {
     border: 0;
+
 }
 
 .container {
@@ -87,29 +88,60 @@ iframe {
     font-family : "Montserrat" !important;
 }
 
+.main_content {
+    margin-top: 4.5rem
+}
 .light {
-    background-color: white !important;
-    .logo {
-        .sun {
+    background-color: white;
+    z-index:1000;
+    position: relative;
+    .text_color {
+        color: black!important ;
+        a {
             color: black;
+        }
+    }
+    .hover_color {
+        &:hover {
+            cursor:pointer;
+            background-color:rgba(#000000, 0.25)
         }
     }
 }
 
 .dark {
-    background-color: black !important;
-    .logo {
-        .sun {
+    background-color: black ;
+    z-index:1000;
+    position: relative;
+    .text_color {
+        color: white !important ;
+        a {
             color: white;
+        }
+    }
+    .hover_color {
+        &:hover {
+            background-color: rgba(#ffffff, 0.25);
+            cursor:pointer;
         }
     }
 }
 
 .search {
     margin-top: 4.65rem;
-    height: 75vh;
+    min-height: 100vh;
     .form {
         padding: 0 7rem;
+        .dark {
+            .form-control {
+                color: white;
+            }
+        }
+        .light {
+            .form-control {
+                color: black;
+            }
+        }
         input {
             background-color: transparent;
         }
@@ -124,5 +156,18 @@ iframe {
     }
     .active_tab {
         background-color: #dc3545;
+    }
+}
+
+.title {
+    h4 {
+        margin-bottom: -0.5rem;
+        font-weight: 700;
+    }
+    .line {
+        width: 6rem;
+        height: 6px;
+        background-color: red;
+        display: inline-block;
     }
 }

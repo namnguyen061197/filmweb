@@ -2,24 +2,39 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import "./index.scss"
 import { ThemeContext } from '../../../store/contexts/themeContext';
+import { Link } from 'react-router-dom';
 
 Footer.propTypes = {
     
 };
 
 function Footer(props) {
+    const listMenu = [
+        {name:"home",path:""},
+        {name:"movies",path:"movies"},
+        {name:"tv series",path:"tv"},
+        {name:"search",path:"search"},
+    ]
+
     const {themeMode} = useContext(ThemeContext);
     return (
-        <div className={`footer px-4 py-4 d-flex justify-content-between ${themeMode}`}>
+        <div className={`footer px-4 py-4 d-flex justify-content-between ${themeMode.name}`}>
             <span className='logo'>
-                <span style={{color:"black"}}>Sun</span>
+                <span className='text_color'>Sun</span>
                 <span style={{color:"red"}}>Star</span>
             </span>
-            <ul className='d-flex align-items-center'>
-                <li className='mx-1 p-2 menu_item'>HOME</li>
-                <li className='mx-1 p-2 menu_item'>MOVIES</li>
-                <li className='mx-1 p-2 menu_item'>TV SERIES</li>
-                <li className='mx-1 p-2 menu_item'>SEARCH</li>
+            <ul className='d-flex align-items-center text_color'>
+                {listMenu.map((item,idx) =>
+                    <li 
+                        key={idx} 
+                    >
+                        <Link 
+                            className="menu_item mx-3 p-2"
+                            to={`/${item.path}`}
+                        >{item.name?.toUpperCase()}
+                        </Link>
+                    </li> 
+                )}
             </ul>
     </div>
     );

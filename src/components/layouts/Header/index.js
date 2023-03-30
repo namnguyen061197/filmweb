@@ -12,14 +12,13 @@ import LoginModal from '../../common/LoginModal';
 function Header(props) {
     const listMenu = [
         {name:"home",path:""},
-        {name:"movies",path:"movies"},
+        {name:"movies",path:"movie"},
         {name:"tv series",path:"tv"},
         {name:"search",path:"search"},
     ]
     const [navbarDisplay, setNavbarDisplay] = useState("");
 
     const {themeMode , toggleThemeMode} = useContext(ThemeContext);
-    console.log(themeMode)
 
     useEffect(() => {
         function handleScroll() {
@@ -34,14 +33,14 @@ function Header(props) {
 
 
     return (
-        <div className={`header d-flex justify-content-between px-4 py-3 ${navbarDisplay} ${themeMode.name} `}>
+        <div className={`header d-flex justify-content-between px-4 py-3 mb-5 ${navbarDisplay} ${themeMode.name} `}>
             <div className='left d-flex align-items-center'>
                 <span className='logo'>
-                    <span className='sun'>Sun</span>
+                    <span className='text_color'>Sun</span>
                     <span style={{color:"red"}}>Star</span>
                 </span>
                 <span className='menu'>
-                    <ul className='d-flex align-items-center'>
+                    <ul className='d-flex align-items-center text_color'>
                         {listMenu.map((item,idx) =>
                             <li 
                                 key={idx} 
